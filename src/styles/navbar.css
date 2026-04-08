@@ -10,15 +10,14 @@
   align-items: center;
   z-index: 1000;
   background: transparent;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Smoother transition */
+  transition: all 0.4s ease;
 }
 
 .navbar.scrolled {
-  height: 70px; /* Reduced height on scroll for compact look */
-  background: rgba(5, 5, 5, 0.95); /* Deep dark background */
+  height: 70px;
+  background: rgba(5, 5, 5, 0.95);
   backdrop-filter: blur(15px);
-  border-bottom: 1px solid rgba(250, 204, 21, 0.15);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(250, 204, 21, 0.2);
 }
 
 .nav-container {
@@ -32,80 +31,134 @@
 
 /* LOGO */
 .logo-img {
-  height: 85px; /* Slightly adjusted for balance */
+  height: 80px;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: 0.3s ease;
 }
 
 .navbar.scrolled .logo-img {
-  height: 65px; /* Shrinks smoothly on scroll */
+  height: 60px;
 }
 
-/* NAV MENU - THE PROFESSIONAL UPDATE */
+/* NAV MENU (Desktop) */
 .nav-menu {
   display: flex;
-  gap: 30px; /* Tighter spacing for elegance */
+  gap: 30px;
   align-items: center;
 }
 
 .nav-menu a {
   text-decoration: none;
   color: #ffffff;
-  font-size: 13px; /* Slightly smaller is more professional */
-  font-weight: 600; /* Semi-bold */
-  text-transform: uppercase; /* High-end brand standard */
-  letter-spacing: 1.5px; /* Increased spacing for readability and style */
-  transition: all 0.3s ease;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  opacity: 0.8;
+  transition: 0.3s;
   position: relative;
-  opacity: 0.75;
 }
 
-/* Hover & Active States */
-.nav-menu a:hover, 
-.nav-menu a.active {
+.nav-menu a:hover, .nav-menu a.active {
   color: #facc15;
   opacity: 1;
-  letter-spacing: 1.8px; /* Subtle expansion on hover */
 }
 
-/* Gold line under active link */
-.nav-menu a.active::after {
-  content: "";
-  position: absolute;
-  bottom: -6px; /* Positioned perfectly below text */
-  left: 0;
-  width: 100%;
-  height: 2px;
+/* === DOUBLE BUTTON FIX FOR DESKTOP === */
+.nav-menu .mobile-nav-btn {
+  display: none; /* Desktop meeda menu lopalunna button kanipinchadu */
+}
+
+.desktop-only {
+  display: block; /* Desktop meeda main button kanipisthundi */
+}
+
+/* HAMBURGER ICON */
+.hamburger {
+  display: none; 
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.hamburger span {
+  width: 30px;
+  height: 3px;
   background: #facc15;
-  border-radius: 4px;
-  box-shadow: 0 2px 8px rgba(250, 204, 21, 0.4); /* Glow effect */
+  border-radius: 10px;
+  transition: 0.3s;
 }
 
-/* BOOK NOW BUTTON */
+/* MOBILE RESPONSIVE (Max 900px) */
+@media (max-width: 900px) {
+  .nav-container {
+    padding: 0 20px;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .hamburger.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+  /* Desktop main button ni mobile lo hide chesthunnam */
+  .desktop-only {
+    display: none !important;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background: rgba(10, 10, 10, 0.98);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+    transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+    z-index: 1050;
+  }
+
+  .nav-menu.nav-active {
+    right: 0;
+  }
+
+  /* Mobile menu lona button ni mathrame ikkada chupisthunnam */
+  .nav-menu .mobile-nav-btn {
+    display: block !important;
+    margin-top: 10px;
+  }
+
+  .nav-menu a {
+    font-size: 16px;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+  }
+}
+
+/* BOOK NOW BUTTON STYLE */
 .header-btn {
   background: #facc15;
-  color: #000;
-  padding: 12px 26px;
+  color: #000 !important;
+  padding: 12px 25px;
   border-radius: 50px;
   font-size: 12px;
-  font-weight: 800; /* Extra bold for CTA */
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 1px;
   text-decoration: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(250, 204, 21, 0.2);
+  transition: 0.3s;
+  display: inline-block;
 }
 
 .header-btn:hover {
-  background: #ffffff;
-  color: #000;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
-}
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .nav-menu {
-    display: none; /* Mobile menu logic implement cheyalsi untundi */
-  }
+  background: #fff;
+  transform: translateY(-2px);
 }
