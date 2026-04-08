@@ -1,0 +1,111 @@
+/* NAVBAR BASE */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  background: transparent;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Smoother transition */
+}
+
+.navbar.scrolled {
+  height: 70px; /* Reduced height on scroll for compact look */
+  background: rgba(5, 5, 5, 0.95); /* Deep dark background */
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(250, 204, 21, 0.15);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+.nav-container {
+  width: 100%;
+  max-width: 1300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+}
+
+/* LOGO */
+.logo-img {
+  height: 85px; /* Slightly adjusted for balance */
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.navbar.scrolled .logo-img {
+  height: 65px; /* Shrinks smoothly on scroll */
+}
+
+/* NAV MENU - THE PROFESSIONAL UPDATE */
+.nav-menu {
+  display: flex;
+  gap: 30px; /* Tighter spacing for elegance */
+  align-items: center;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 13px; /* Slightly smaller is more professional */
+  font-weight: 600; /* Semi-bold */
+  text-transform: uppercase; /* High-end brand standard */
+  letter-spacing: 1.5px; /* Increased spacing for readability and style */
+  transition: all 0.3s ease;
+  position: relative;
+  opacity: 0.75;
+}
+
+/* Hover & Active States */
+.nav-menu a:hover, 
+.nav-menu a.active {
+  color: #facc15;
+  opacity: 1;
+  letter-spacing: 1.8px; /* Subtle expansion on hover */
+}
+
+/* Gold line under active link */
+.nav-menu a.active::after {
+  content: "";
+  position: absolute;
+  bottom: -6px; /* Positioned perfectly below text */
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #facc15;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(250, 204, 21, 0.4); /* Glow effect */
+}
+
+/* BOOK NOW BUTTON */
+.header-btn {
+  background: #facc15;
+  color: #000;
+  padding: 12px 26px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 800; /* Extra bold for CTA */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(250, 204, 21, 0.2);
+}
+
+.header-btn:hover {
+  background: #ffffff;
+  color: #000;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .nav-menu {
+    display: none; /* Mobile menu logic implement cheyalsi untundi */
+  }
+}

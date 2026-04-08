@@ -1,0 +1,127 @@
+/* PACKAGES SECTION - DARK STYLE */
+
+.packages-section {
+  background: #000;
+  padding: 80px 40px;
+  text-align: center;
+}
+
+/* Subtitle */
+.subtitle {
+  color: #facc15;
+  letter-spacing: 3px;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+/* Title */
+.title {
+  font-size: 40px;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* Description */
+.desc {
+  color: #aaa;
+  max-width: 700px;
+  margin: 10px auto 50px;
+  font-size: 16px;
+}
+
+/* GRID - 3 PER ROW */
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+/* CARD */
+.package-card {
+  border: 1px solid #facc15;
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: left;
+  transition: 0.3s;
+  background: #111;
+}
+
+/* HOVER */
+.package-card:hover {
+  background: rgba(250, 204, 21, 0.05);
+  transform: translateY(-5px);
+}
+
+/* IMAGE */
+.package-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* CONTENT */
+.package-content {
+  padding: 20px;
+}
+
+/* TOP ROW */
+.top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.top span {
+  font-size: 13px;
+  color: #ccc;
+}
+
+/* PRICE */
+.price {
+  color: #facc15;
+  font-weight: bold;
+}
+
+/* TITLE */
+.package-content h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+/* BUTTON */
+.package-content button {
+  background: #facc15;
+  color: #000;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.package-content button:hover {
+  background: #eab308;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Tablet */
+@media (max-width: 992px) {
+  .packages-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .packages-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+}
