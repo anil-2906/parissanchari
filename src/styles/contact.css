@@ -67,6 +67,11 @@
   margin-bottom: 15px;
 }
 
+/* Service dropdown motham width occupy cheyadaniki */
+.full-width {
+  grid-column: span 2;
+}
+
 .form-card input, .form-card select {
   width: 100%;
   padding: 14px;
@@ -76,6 +81,16 @@
   color: white;
   font-size: 15px;
   transition: 0.3s;
+  cursor: pointer;
+}
+
+/* Dropdown arrow color customisation (Optional) */
+.form-card select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23facc15'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 15px;
 }
 
 .form-card input:focus, .form-card select:focus {
@@ -96,6 +111,7 @@
   cursor: pointer;
   transition: 0.3s ease;
   margin-top: 10px;
+  text-transform: uppercase;
 }
 
 .whatsapp-btn:hover {
@@ -113,21 +129,35 @@
 
 /* MOBILE RESPONSIVE */
 @media (max-width: 900px) {
+  .contact-section {
+    padding: 60px 20px;
+  }
+
   .contact-container {
     grid-template-columns: 1fr;
     text-align: center;
+    gap: 40px;
   }
   
   .benefit-list {
     align-items: center;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
 
   .contact-title {
-    font-size: 36px;
+    font-size: 32px;
+  }
+
+  .form-card {
+    padding: 30px 20px;
   }
 
   .input-group, .select-group {
     grid-template-columns: 1fr;
+  }
+
+  /* Mobile lo full-width span avasaram ledhu kabatti reset */
+  .full-width {
+    grid-column: span 1;
   }
 }

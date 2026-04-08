@@ -1,11 +1,13 @@
 import "../styles/navbar.css";
 import { useState, useEffect } from "react";
 import logo from "../assets/logo.png";
+import ContactForm from "../components/contactform"; // Form component ni import cheyandi
 
 export default function Navbar() {
   const [active, setActive] = useState("home");
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [showForm, setShowForm] = useState(false); // Form modal state
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,43 +57,52 @@ export default function Navbar() {
     }
   };
 
+  // Form open chese function
+  const openBookingForm = (e) => {
+    e.preventDefault();
+    setShowForm(true);
+    setIsOpen(false); // Mobile menu open unte close chesthundhi
+  };
+
   return (
-    <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
-      <div className="nav-container">
-        
-        <div className="logo-box" onClick={scrollToTop}>
-          <img src={logo} alt="Paris Sanchari" className="logo-img" />
-        </div>
-
-        {/* HAMBURGER ICON */}
-        <div className={`hamburger ${isOpen ? "open" : ""}`} onClick={() => setIsOpen(!isOpen)}>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-
-        {/* NAV MENU */}
-        <div className={`nav-menu ${isOpen ? "nav-active" : ""}`}>
-          <a href="#home" className={active === "home" ? "active" : ""} onClick={(e) => handleLinkClick(e, "home")}>Home</a>
-          <a href="#services" className={active === "services" ? "active" : ""} onClick={(e) => handleLinkClick(e, "services")}>Services</a>
-          <a href="#packages" className={active === "packages" ? "active" : ""} onClick={(e) => handleLinkClick(e, "packages")}>Packages</a>
-          <a href="#whyus" className={active === "whyus" ? "active" : ""} onClick={(e) => handleLinkClick(e, "whyus")}>Why Us</a>
-          <a href="#contact" className={active === "contact" ? "active" : ""} onClick={(e) => handleLinkClick(e, "contact")}>Contact</a>
+    <>
+      <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
+        <div className="nav-container">
           
-          {/* Mobile version Book Now (Visible only in mobile menu) */}
-          <a href="https://wa.me/919866883843" target="_blank" className="header-btn mobile-nav-btn">
-            Book Now
-          </a>
-        </div>
+          <div className="logo-box" onClick={scrollToTop}>
+            <img src={logo} alt="Paris Sanchari" className="logo-img" />
+          </div>
 
-        {/* Desktop version Book Now (Hidden on Mobile) */}
-        <div className="nav-btn-box desktop-only">
-          <a href="https://wa.me/919866883843" target="_blank" className="header-btn">
-            Book Now
-          </a>
-        </div>
+          <div className={`hamburger ${isOpen ? "open" : ""}`} onClick={() => setIsOpen(!isOpen)}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
 
-      </div>
-    </nav>
+          <div className={`nav-menu ${isOpen ? "nav-active" : ""}`}>
+            <a href="#home" className={active === "home" ? "active" : ""} onClick={(e) => handleLinkClick(e, "home")}>Home</a>
+            <a href="#services" className={active === "services" ? "active" : ""} onClick={(e) => handleLinkClick(e, "services")}>Services</a>
+            <a href="#packages" className={active === "packages" ? "active" : ""} onClick={(e) => handleLinkClick(e, "packages")}>Packages</a>
+            <a href="#whyus" className={active === "whyus" ? "active" : ""} onClick={(e) => handleLinkClick(e, "whyus")}>Why Us</a>
+            <a href="#contact" className={active === "contact" ? "active" : ""} onClick={(e) => handleLinkClick(e, "contact")}>Contact</a>
+            
+            {/* Mobile Book Now - WhatsApp badulu Form open chesthundhi */}
+            <button onClick={openBookingForm} className="header-btn mobile-nav-btn">
+              Book Now
+            </button>
+          </div>
+
+          {/* Desktop Book Now */}
+          <div className="nav-btn-box desktop-only">
+            <button onClick={openBookingForm} className="header-btn">
+              Book Now
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      {/* Show Form Modal if state is true */}
+      {showForm && <ContactForm closeForm={() => setShowForm(false)} />}
+    </>
   );
 }

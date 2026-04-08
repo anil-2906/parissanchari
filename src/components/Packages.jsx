@@ -2,8 +2,8 @@ import "../styles/packages.css";
 
 // Corrected Imports based on your File Explorer
 import eiffeltower from "../assets/eiffeltower.jpg";
-import coupleTrip from "../assets/coupleTrip.png"; // Changed to .png and camelCase
-import familyTrip from "../assets/familyTrip.jpg"; // Changed to camelCase
+import coupleTrip from "../assets/coupleTrip.png"; 
+import familyTrip from "../assets/familyTrip.jpg"; 
 import disneyland from "../assets/disneyland.jpg";
 import switzerland from "../assets/swiss.jpg";
 import belgium from "../assets/belgium.jpg";
@@ -48,6 +48,14 @@ const packages = [
 ];
 
 export default function Packages() {
+  
+  // WhatsApp Message generate chese function
+  const getWhatsAppURL = (packageTitle) => {
+    const phoneNumber = "919866883843";
+    const message = `Hi Paris Sanchari! I am planning for the ${packageTitle}.Can you please share more details and pricing for this tour?`;
+    return `https://wa.me/${phoneNumber}?text=${message}`;
+  };
+
   return (
     <section className="packages-section" id="packages">
       <p className="subtitle">EXPLORE WITH US</p>
@@ -76,8 +84,9 @@ export default function Packages() {
 
               <h3>{pkg.title}</h3>
 
+              {/* Dynamic WhatsApp Link based on Package Title */}
               <a 
-                href="https://wa.me/919866883843" 
+                href={getWhatsAppURL(pkg.title)} 
                 target="_blank" 
                 rel="noreferrer"
                 className="enquire-link"
@@ -90,7 +99,15 @@ export default function Packages() {
       </div>
 
       <p className="bottom-text">
-        Looking for something specific? <span>Tell us your travel plans →</span>
+        Looking for something specific? 
+        <a 
+          href={`https://wa.me/919866883843?text=Hi Paris Sanchari! 👋 %0A%0AI want to plan a custom trip to Europe. Can you help?`} 
+          target="_blank" 
+          rel="noreferrer" 
+          style={{color: '#facc15', textDecoration: 'none', marginLeft: '5px'}}
+        >
+          Tell us your travel plans →
+        </a>
       </p>
     </section>
   );

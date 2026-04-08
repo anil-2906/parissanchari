@@ -1,7 +1,11 @@
 import "../styles/hero.css";
+import { useState } from "react"; // State vadadaniki import
 import eiffelImage from "../assets/background1.png";
+import ContactForm from "../components/contactform"; // Form ni import cheyandi
 
 export default function Hero() {
+  const [showForm, setShowForm] = useState(false); // Form modal state
+
   return (
     <section className="hero" style={{ backgroundImage: `url(${eiffelImage})` }}>
       <div className="hero-overlay"></div>
@@ -26,9 +30,10 @@ export default function Hero() {
           </p>
 
           <div className="hero-btns">
-            <a href="https://wa.me/919866883843" target="_blank" className="btn-fill">
+            {/* WhatsApp link badulu ippudu mana Form open avthundi */}
+            <button className="btn-fill" onClick={() => setShowForm(true)}>
               Book Your Trip →
-            </a>
+            </button>
 
             <button 
               className="btn-outline"
@@ -40,6 +45,9 @@ export default function Hero() {
 
         </div>
       </div>
+
+      {/* Form modal ikkada trigger avthundi */}
+      {showForm && <ContactForm closeForm={() => setShowForm(false)} />}
     </section>
   );
 }

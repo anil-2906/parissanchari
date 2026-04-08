@@ -7,8 +7,9 @@ export default function Contact() {
     phone: "",
     location: "Paris",
     month: "Travel Month",
-    people: "2 Travelers",
+    travelerType: "Couple / Honeymoon", // Updated
     service: "Services Needed",
+    budget: "Standard Range", // New field
   });
 
   const handleChange = (e) => {
@@ -16,22 +17,24 @@ export default function Contact() {
   };
 
   const sendWhatsApp = () => {
-    const { name, phone, location, month, people, service } = formData;
+    const { name, phone, location, month, travelerType, service, budget } = formData;
     
     if(!name || !phone) {
       alert("Please enter your Name and WhatsApp number");
       return;
     }
 
-    const message = `*New Enquiry from Website* 🗼
+    const message = `*New Trip Enquiry from Website* 🗼
 ------------------------------
-*Name:* ${name}
-*WhatsApp:* ${phone}
-*Location:* ${location}
-*Travel Month:* ${month}
-*Travelers:* ${people}
-*Services:* ${service}
-------------------------------`;
+👤 *Name:* ${name}
+📱 *WhatsApp:* ${phone}
+📍 *Destination:* ${location}
+🗓️ *Travel Month:* ${month}
+👥 *Traveler Type:* ${travelerType}
+💼 *Services:* ${service}
+💰 *Budget:* ${budget}
+------------------------------
+_Sent via Paris Sanchari Website_`;
 
     const url = `https://wa.me/919866883843?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
@@ -74,14 +77,15 @@ export default function Contact() {
         <div className="contact-right">
           <div className="form-card">
             <div className="input-group">
-              <input type="text" placeholder="Your Name" id="name" onChange={handleChange} />
-              <input type="text" placeholder="WhatsApp Number" id="phone" onChange={handleChange} />
+              <input type="text" placeholder="Your Name" id="name" onChange={handleChange} required />
+              <input type="text" placeholder="WhatsApp with Country Code" id="phone" onChange={handleChange} required />
             </div>
 
             <div className="select-group">
               <select id="location" onChange={handleChange}>
-                <option value="Paris">Paris</option>
-                <option value="Europe">Europe</option>
+                <option value="Paris">Paris Tour</option>
+                <option value="Europe">Europe Combined</option>
+                <option value="Custom">Custom Destination</option>
               </select>
 
               <select id="month" onChange={handleChange}>
@@ -96,18 +100,27 @@ export default function Contact() {
             </div>
 
             <div className="select-group">
-              <select id="people" onChange={handleChange}>
-                <option>2 Travelers</option>
-                <option>1 Traveler</option>
-                <option>3 Travelers</option>
-                <option>4+ Travelers</option>
+              <select id="travelerType" onChange={handleChange}>
+                <option value="Solo Traveler">Solo Traveler</option>
+                <option value="Couple / Honeymoon">Couple / Honeymoon</option>
+                <option value="Family with Kids">Family with Kids</option>
+                <option value="Group of Friends">Group of Friends</option>
               </select>
 
-              <select id="service" onChange={handleChange}>
+              <select id="budget" onChange={handleChange}>
+                <option value="Standard">Budget: Standard</option>
+                <option value="Premium">Budget: Premium</option>
+                <option value="Luxury">Budget: Luxury</option>
+              </select>
+            </div>
+
+            <div className="select-group">
+              <select id="service" className="full-width" onChange={handleChange}>
                 <option>Services Needed</option>
-                <option>Full Tour Package</option>
+                <option>Full Tour Package (Flight+Hotel+Guide)</option>
+                <option>Only Guided City Tour</option>
                 <option>Visa Assistance Only</option>
-                <option>Local Guide Support</option>
+                <option>Airport Pickup & Drop</option>
               </select>
             </div>
 
