@@ -1,6 +1,6 @@
 import "../styles/footer.css";
-// Nee logo path ni ikkada import chey
 import logo from "../assets/logo.png"; 
+import { FaInstagram, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 
 export default function Footer() {
   const scrollToSection = (id) => {
@@ -16,19 +16,13 @@ export default function Footer() {
         
         {/* LEFT SECTION: BRANDING */}
         <div className="footer-section brand-info">
-          {/* Text badulu ikkada Image Logo pettali */}
           <div className="footer-logo-container">
             <img src={logo} alt="Paris Sanchari Logo" className="footer-logo-img" />
           </div>
           <p className="brand-desc">
             Your trusted Telugu-speaking travel guide in Paris. Making European 
-            dreams come true since 2019 with personalized support and local expertise.
+            dreams come true with personalized support and local expertise.
           </p>
-          <div className="footer-socials">
-            {/* Buttons la kakunda real icons use chesthe inka professional ga untundi */}
-            <a href="https://instagram.com/your-id" target="_blank" className="social-button">Instagram</a>
-            <a href="https://wa.me/919866883843" target="_blank" className="social-button">WhatsApp</a>
-          </div>
         </div>
 
         {/* MIDDLE SECTION: QUICK LINKS */}
@@ -42,22 +36,37 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* RIGHT SECTION: CONTACT */}
+        {/* RIGHT SECTION: CONTACT US */}
         <div className="footer-section footer-contact">
           <h3 className="section-title">CONTACT US</h3>
-          <div className="contact-info">
-            <div className="contact-item">
-              <span className="icon-label">PHONE:</span>
-              <a href="tel:+919866883843">+91 98668 83843</a>
-            </div>
-            <div className="contact-item">
-              <span className="icon-label">EMAIL:</span>
-              <a href="mailto:parissanchari@gmail.com">parissanchari@gmail.com</a>
-            </div>
-            <div className="contact-item">
-              <span className="icon-label">LOCATION:</span>
-              <p>Nalgonda, Telangana / Paris, France</p>
-            </div>
+          <div className="contact-social-icons">
+            <a 
+              href="https://www.instagram.com/paris_sanchari?igsh=c2ZwcGl0a2RveW1m" 
+              target="_blank" 
+              rel="noreferrer" 
+              className="social-icon-link"
+              title="Instagram"
+            >
+              <FaInstagram />
+            </a>
+
+            <a 
+              href="https://wa.me/919866883843" 
+              target="_blank" 
+              rel="noreferrer" 
+              className="social-icon-link"
+              title="WhatsApp"
+            >
+              <FaWhatsapp />
+            </a>
+
+            <a 
+              href="mailto:parissanchari@gmail.com" 
+              className="social-icon-link"
+              title="Email"
+            >
+              <FaEnvelope />
+            </a>
           </div>
         </div>
 
@@ -65,6 +74,7 @@ export default function Footer() {
 
       <div className="footer-bottom">
         <p>&copy; {new Date().getFullYear()} Paris Sanchari. All rights reserved.</p>
+        <p className="credit">Designed for the Indian Traveler in Paris</p>
       </div>
     </footer>
   );

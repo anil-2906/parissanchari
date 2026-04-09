@@ -4,7 +4,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 90px;
+  height: 110px; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,8 +14,8 @@
 }
 
 .navbar.scrolled {
-  height: 70px;
-  background: rgba(5, 5, 5, 0.95);
+  height: 85px; 
+  background: rgba(5, 5, 5, 0.98);
   backdrop-filter: blur(15px);
   border-bottom: 1px solid rgba(250, 204, 21, 0.2);
 }
@@ -25,19 +25,30 @@
   max-width: 1300px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; 
   padding: 0 40px;
 }
 
-/* LOGO */
+/* LOGO - Alignment Updated */
+.logo-box { 
+  cursor: pointer; 
+  display: flex; 
+  align-items: center; 
+}
+
 .logo-img {
-  height: 100px;
-  cursor: pointer;
-  transition: 0.3s ease;
+  height: 125px; /* Size updated based on */
+  width: auto;
+  transition: 0.4s ease;
+  object-fit: contain;
+  /* Logo ni menu items tho paatu balance cheyadaniki down chesam */
+  margin-top: 15px; 
+  display: block;
 }
 
 .navbar.scrolled .logo-img {
-  height: 60px;
+  height: 85px; 
+  margin-top: 8px; /* Scrolled state lo kuda balance chesam */
 }
 
 /* NAV MENU (Desktop) */
@@ -51,12 +62,11 @@
   text-decoration: none;
   color: #ffffff;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.2px;
   opacity: 0.8;
   transition: 0.3s;
-  position: relative;
 }
 
 .nav-menu a:hover, .nav-menu a.active {
@@ -64,101 +74,66 @@
   opacity: 1;
 }
 
-/* === DOUBLE BUTTON FIX FOR DESKTOP === */
-.nav-menu .mobile-nav-btn {
-  display: none; /* Desktop meeda menu lopalunna button kanipinchadu */
-}
-
+/* === BUTTONS VISIBILITY FIX === */
 .desktop-only {
-  display: block; /* Desktop meeda main button kanipisthundi */
+  display: flex !important; 
 }
 
-/* HAMBURGER ICON */
-.hamburger {
-  display: none; 
-  flex-direction: column;
-  gap: 6px;
-  cursor: pointer;
-  z-index: 1100;
+.mobile-nav-btn {
+  display: none !important; 
 }
 
-.hamburger span {
-  width: 30px;
-  height: 3px;
-  background: #facc15;
-  border-radius: 10px;
-  transition: 0.3s;
-}
-
-/* MOBILE RESPONSIVE (Max 900px) */
-@media (max-width: 900px) {
-  .nav-container {
-    padding: 0 20px;
-  }
-
-  .hamburger {
-    display: flex;
-  }
-
-  .hamburger.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
-  .hamburger.open span:nth-child(2) { opacity: 0; }
-  .hamburger.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
-
-  /* Desktop main button ni mobile lo hide chesthunnam */
-  .desktop-only {
-    display: none !important;
-  }
-
-  .nav-menu {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 280px;
-    height: 100vh;
-    background: rgba(10, 10, 10, 0.98);
-    backdrop-filter: blur(20px);
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 35px;
-    transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: -10px 0 30px rgba(0,0,0,0.5);
-    z-index: 1050;
-  }
-
-  .nav-menu.nav-active {
-    right: 0;
-  }
-
-  /* Mobile menu lona button ni mathrame ikkada chupisthunnam */
-  .nav-menu .mobile-nav-btn {
-    display: block !important;
-    margin-top: 10px;
-  }
-
-  .nav-menu a {
-    font-size: 16px;
-    width: 100%;
-    text-align: center;
-    padding: 10px 0;
-  }
-}
-
-/* BOOK NOW BUTTON STYLE */
 .header-btn {
   background: #facc15;
   color: #000 !important;
-  padding: 12px 25px;
+  padding: 12px 28px;
   border-radius: 50px;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 800;
   text-transform: uppercase;
-  text-decoration: none;
+  border: 2px solid #facc15;
   transition: 0.3s;
-  display: inline-block;
+  cursor: pointer;
+  /* Button position adjust chesam desktop meeda */
+  margin-top: 5px; 
 }
 
 .header-btn:hover {
-  background: #fff;
-  transform: translateY(-2px);
+  background: transparent;
+  color: #facc15 !important;
+}
+
+/* HAMBURGER */
+.hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+.hamburger span { width: 25px; height: 3px; background: #facc15; transition: 0.3s; }
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 900px) {
+  .navbar { height: 90px; }
+  
+  .logo-img { 
+    height: 100px; 
+    margin-top: 10px; /* Mobile lo spacing adjust chesam */
+  }
+  
+  .hamburger { display: flex; }
+  
+  .desktop-only { display: none !important; } 
+  
+  .nav-menu {
+    position: fixed;
+    top: 0; right: -100%;
+    width: 280px; height: 100vh;
+    background: #0a0a0a;
+    flex-direction: column;
+    justify-content: center;
+    transition: 0.4s;
+  }
+  
+  .nav-menu.nav-active { right: 0; }
+  
+  .mobile-nav-btn { 
+    display: flex !important; 
+    margin-top: 20px;
+  }
 }

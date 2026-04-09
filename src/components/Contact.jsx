@@ -49,8 +49,8 @@ _Sent via Paris Sanchari Website_`;
           <p className="subtitle">START PLANNING</p>
           <h2 className="contact-title">Plan Your Paris Adventure</h2>
           <p className="contact-desc">
-            Share your travel plans and I'll help you create the perfect Paris & Europe itinerary. 
-            No commitment — just honest guidance from a fellow Telugu traveler.
+            Share your travel plans and I will help you create the perfect Paris & Europe itinerary. 
+            No commitment just honest guidance from a fellow Telugu traveler.
           </p>
 
           <div className="benefit-list">
