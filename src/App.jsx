@@ -6,6 +6,7 @@ import Packages from "./components/Packages";
 import WhyUS from "./components/WhyUS";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import Testimonials from "./components/testimonals";
 
 function App() {
   return (
