@@ -1,10 +1,10 @@
-import "../styles/testimonials.css";
+import "../styles/reviews.css";
 
-export default function Testimonials() {
+export default function Reviews() {
   return (
-    <section className="testimonials" id="testimonials">
-      
-      <h2 className="testimonial-title">
+    <section className="reviews" id="reviews">
+
+      <h2 className="review-title">
         Happy Travelers ✈️
       </h2>
 
