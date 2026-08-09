@@ -1,178 +1,740 @@
+/* =========================================
+   PARIS SANCHARI CONTACT SECTION
+========================================= */
+
 .contact-section {
-  background: #000;
-  /* Bottom padding taggincha footer ki daggara avvadaniki */
-  padding: 100px 20px 60px; 
-  color: white;
-  font-family: 'Inter', sans-serif;
+    width: 100%;
+    min-height: 620px;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 0.95fr)
+        minmax(420px, 0.85fr);
+
+    align-items: center;
+
+    gap: 55px;
+
+    padding: 70px 6%;
+
+    box-sizing: border-box;
+
+    background: #000;
+
+    color: #fff;
 }
 
-.contact-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
+
+/* =========================================
+   LEFT SIDE
+========================================= */
+
+.contact-left {
+    width: 100%;
+    max-width: 560px;
 }
 
-/* LEFT SIDE */
 .contact-left .subtitle {
-  color: #facc15;
-  font-weight: 700;
-  letter-spacing: 2px;
-  font-size: 14px;
-  margin-bottom: 15px;
-  text-transform: uppercase;
+    margin: 0 0 12px;
+
+    color: #facc15;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
 }
 
 .contact-title {
-  font-size: 48px;
-  font-weight: 800;
-  line-height: 1.2;
-  margin-bottom: 20px;
+    margin: 0 0 18px;
+
+    color: #fff;
+
+    font-size: clamp(34px, 3.5vw, 52px);
+
+    line-height: 1.08;
+
+    font-weight: 800;
+
+    letter-spacing: -1px;
 }
 
 .contact-desc {
-  color: #a1a1aa;
-  font-size: 18px;
-  line-height: 1.6;
-  margin-bottom: 30px;
+    max-width: 500px;
+
+    margin: 0 0 28px;
+
+    color: #aaa;
+
+    font-size: 15px;
+
+    line-height: 1.65;
 }
 
+
+/* =========================================
+   BENEFITS
+========================================= */
+
 .benefit-list {
-  display: flex;
-  flex-direction: column;
-  gap: 2px; /* Ikada gap 12px uncha, idi chala natural ga untundi. Inka thaggalante 8px pettu */
-  margin-top: 10px; /* Top text nundi distance adjust cheyadaniki */
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 13px;
 }
 
 .benefit-item {
-  display: flex;
-  gap: 10px; /* Icon ki text ki madhya gap */
-  align-items: center;
-  font-size: 16px;
-  color: #e4e4e7;
-  line-height: 1.2; /* Line height thagginchadam valla vertical space kalisosthundhi */
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
 }
 
-/* Checkmark icons color fixing */
-.benefit-item svg {
-  color: #facc15;
-  flex-shrink: 0;
+.benefit-item .icon {
+    width: 26px;
+    height: 26px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: rgba(250, 204, 21, 0.12);
+
+    color: #facc15;
+
+    font-size: 13px;
+
+    font-weight: 900;
 }
 
-/* RIGHT SIDE FORM CARD */
+.benefit-item p {
+    margin: 0;
+
+    color: #ddd;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   HIGHLIGHT
+========================================= */
+
+.contact-highlight {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    max-width: 470px;
+
+    margin-top: 28px;
+
+    padding: 14px 16px;
+
+    box-sizing: border-box;
+
+    border-left: 3px solid #facc15;
+
+    background: rgba(250, 204, 21, 0.04);
+}
+
+.contact-highlight > span {
+    font-size: 24px;
+}
+
+.contact-highlight strong {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: #facc15;
+
+    font-size: 13px;
+}
+
+.contact-highlight p {
+    margin: 0;
+
+    color: #888;
+
+    font-size: 12px;
+}
+
+
+/* =========================================
+   RIGHT SIDE
+========================================= */
+
+.contact-right {
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+}
+
+
+/* =========================================
+   FORM CARD — COMPACT
+========================================= */
+
 .form-card {
-  background: #0a0a0a;
-  padding: 40px;
-  border-radius: 24px; /* Koncham ekkuva curve baguntundi */
-  border: 1px solid rgba(250, 204, 21, 0.2);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    position: relative;
+
+    width: 100%;
+
+    max-width: 560px;
+
+    padding: 25px 28px 22px;
+
+    box-sizing: border-box;
+
+    background:
+        linear-gradient(
+            145deg,
+            #111111,
+            #0b0b0b
+        );
+
+    border: 1px solid rgba(250, 204, 21, 0.38);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.65),
+        0 0 30px rgba(250, 204, 21, 0.04);
 }
 
-.input-group, .select-group {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
-  margin-bottom: 15px;
+
+/* =========================================
+   FORM HEADER
+========================================= */
+
+.form-heading {
+    margin-bottom: 20px;
+
+    text-align: center;
 }
 
-.full-width {
-  grid-column: span 2;
+.form-heading > span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    font-size: 25px;
 }
 
-.form-card input, .form-card select {
-  width: 100%;
-  padding: 14px 16px;
-  background: #121212;
-  border: 1px solid #27272a;
-  border-radius: 12px;
-  color: white;
-  font-size: 15px;
-  transition: all 0.3s ease;
+.form-heading h3 {
+    margin: 0;
+
+    color: #facc15;
+
+    font-size: 22px;
+
+    font-weight: 900;
+
+    line-height: 1.2;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.4px;
 }
 
-/* Dropdown styling */
-.form-card select {
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23facc15'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 15px center;
-  background-size: 18px;
-  cursor: pointer;
+.form-heading p {
+    margin: 6px 0 0;
+
+    color: #777;
+
+    font-size: 12px;
 }
 
-.form-card input:focus, .form-card select:focus {
-  border-color: #facc15;
-  outline: none;
-  background: #18181b;
-  box-shadow: 0 0 0 2px rgba(250, 204, 21, 0.1);
+
+/* =========================================
+   FORM ROW
+========================================= */
+
+.form-row {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 13px;
+
+    margin-bottom: 14px;
 }
+
+
+/* =========================================
+   FIELD
+========================================= */
+
+.field {
+    width: 100%;
+
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.field.full-width {
+    margin-bottom: 14px;
+}
+
+.field label {
+    display: block;
+
+    color: #facc15;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================
+   INPUT / SELECT / TEXTAREA
+========================================= */
+
+.field input,
+.field select,
+.field textarea {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    border: 1px solid #303030;
+
+    border-radius: 9px;
+
+    outline: none;
+
+    background: #171717;
+
+    color: #f5f5f5;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* =========================================
+   INPUT + SELECT
+========================================= */
+
+.field input,
+.field select {
+    height: 46px;
+
+    padding: 0 13px;
+}
+
+
+/* =========================================
+   TEXTAREA
+========================================= */
+
+.field textarea {
+    min-height: 82px;
+
+    padding: 11px 13px;
+
+    resize: vertical;
+
+    line-height: 1.45;
+}
+
+
+/* =========================================
+   PLACEHOLDER
+========================================= */
+
+.field input::placeholder,
+.field textarea::placeholder {
+    color: #666;
+}
+
+
+/* =========================================
+   HOVER
+========================================= */
+
+.field input:hover,
+.field select:hover,
+.field textarea:hover {
+    border-color: #454545;
+}
+
+
+/* =========================================
+   FOCUS
+========================================= */
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+    border-color: #facc15;
+
+    background: #1a1a1a;
+
+    box-shadow:
+        0 0 0 3px rgba(250, 204, 21, 0.07);
+}
+
+
+/* =========================================
+   SELECT
+========================================= */
+
+.field select {
+    cursor: pointer;
+
+    color-scheme: dark;
+}
+
+
+/* =========================================
+   DATE
+========================================= */
+
+.field input[type="date"] {
+    color-scheme: dark;
+
+    cursor: pointer;
+}
+
+
+/* =========================================
+   WHATSAPP BUTTON
+========================================= */
 
 .whatsapp-btn {
-  width: 100%;
-  padding: 18px;
-  background: #facc15;
-  color: #000;
-  font-weight: 800;
-  font-size: 16px;
-  border: none;
-  border-radius: 14px;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  margin-top: 10px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+    width: 100%;
+
+    min-height: 52px;
+
+    padding: 0 16px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    margin-top: 2px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #facc15,
+            #eab308
+        );
+
+    color: #050505;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    letter-spacing: 0.6px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
 }
 
 .whatsapp-btn:hover {
-  background: #fbbf24;
-  transform: translateY(-3px);
-  box-shadow: 0 15px 30px rgba(250, 204, 21, 0.3);
+    background:
+        linear-gradient(
+            135deg,
+            #fde047,
+            #facc15
+        );
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(250, 204, 21, 0.22);
 }
+
+.whatsapp-btn:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   WHATSAPP ICON
+========================================= */
+
+.whatsapp-btn > span:first-child {
+    font-size: 17px;
+}
+
+
+/* =========================================
+   ARROW
+========================================= */
+
+.btn-arrow {
+    font-size: 18px;
+
+    transition:
+        transform 0.2s ease;
+}
+
+.whatsapp-btn:hover .btn-arrow {
+    transform: translateX(4px);
+}
+
+
+/* =========================================
+   FORM FOOTER
+========================================= */
 
 .form-footer {
-  text-align: center;
-  font-size: 13px;
-  color: #71717a;
-  margin-top: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
+    margin: 10px 0 0;
+
+    color: #555;
+
+    text-align: center;
+
+    font-size: 9.5px;
+
+    line-height: 1.4;
 }
 
-/* MOBILE RESPONSIVE */
-@media (max-width: 900px) {
-  .contact-section {
-    padding: 60px 20px 40px;
-  }
 
-  .contact-container {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 40px;
-  }
-  
-  .benefit-list {
-    align-items: flex-start; /* List items ni center cheyakunda left align unchithe mobile lo baguntundi */
-    max-width: 320px;
-    margin: 0 auto 30px;
-  }
+/* =========================================
+   TABLET
+========================================= */
 
-  .contact-title {
-    font-size: 36px;
-  }
+@media (max-width: 1000px) {
 
-  .form-card {
-    padding: 30px 20px;
-  }
+    .contact-section {
+        grid-template-columns: 1fr;
 
-  .input-group, .select-group {
-    grid-template-columns: 1fr;
-  }
+        gap: 45px;
 
-  .full-width {
-    grid-column: span 1;
-  }
+        padding: 65px 6%;
+    }
+
+    .contact-left {
+        max-width: 650px;
+
+        margin: 0 auto;
+
+        text-align: center;
+    }
+
+    .contact-desc {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .benefit-list {
+        width: fit-content;
+
+        margin: 0 auto;
+
+        text-align: left;
+    }
+
+    .contact-highlight {
+        margin-left: auto;
+        margin-right: auto;
+
+        text-align: left;
+    }
+
+    .form-card {
+        max-width: 560px;
+
+        margin: 0 auto;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+
+    .contact-section {
+        padding: 55px 16px;
+
+        gap: 35px;
+    }
+
+    .contact-title {
+        font-size: 35px;
+    }
+
+    .contact-desc {
+        font-size: 14px;
+    }
+
+    .benefit-item p {
+        font-size: 13px;
+    }
+
+    .form-card {
+        max-width: 100%;
+
+        padding: 23px 18px 20px;
+
+        border-radius: 17px;
+    }
+
+    .form-heading {
+        margin-bottom: 19px;
+    }
+
+    .form-heading > span {
+        font-size: 23px;
+    }
+
+    .form-heading h3 {
+        font-size: 20px;
+    }
+
+    .form-heading p {
+        font-size: 11px;
+    }
+
+    /*
+       Mobile:
+       two-column rows become one column.
+    */
+
+    .form-row {
+        grid-template-columns: 1fr;
+
+        gap: 13px;
+
+        margin-bottom: 13px;
+    }
+
+    .field.full-width {
+        margin-bottom: 13px;
+    }
+
+    .field input,
+    .field select {
+        height: 48px;
+
+        font-size: 13px;
+    }
+
+    .field textarea {
+        min-height: 80px;
+
+        font-size: 13px;
+    }
+
+    .whatsapp-btn {
+        min-height: 52px;
+
+        font-size: 11px;
+
+        letter-spacing: 0.4px;
+    }
+}
+
+
+/* =========================================
+   SMALL PHONES
+========================================= */
+
+@media (max-width: 380px) {
+
+    .contact-section {
+        padding-left: 12px;
+
+        padding-right: 12px;
+    }
+
+    .contact-title {
+        font-size: 31px;
+    }
+
+    .contact-desc {
+        font-size: 13px;
+    }
+
+    .form-card {
+        padding: 21px 14px 18px;
+    }
+
+    .form-heading h3 {
+        font-size: 18px;
+    }
+
+    .field label {
+        font-size: 9px;
+    }
+
+    .field input,
+    .field select {
+        height: 46px;
+
+        padding-left: 12px;
+
+        padding-right: 12px;
+
+        font-size: 12px;
+    }
+
+    .field textarea {
+        font-size: 12px;
+    }
+
+    .whatsapp-btn {
+        min-height: 50px;
+
+        font-size: 10px;
+
+        gap: 6px;
+    }
+
+    .form-footer {
+        font-size: 9px;
+    }
 }

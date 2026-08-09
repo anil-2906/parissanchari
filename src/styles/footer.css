@@ -1,145 +1,379 @@
+/* =========================================
+   PARIS SANCHARI FOOTER
+========================================= */
+
 .footer {
-  background-color: #080808;
-  color: #fff;
-  padding: 80px 20px 30px;
-  font-family: 'Inter', 'Segoe UI', sans-serif;
-  border-top: 1px solid rgba(255, 204, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box;
+
+    background: #080808;
+    color: #ffffff;
+
+    padding: 65px 30px 25px;
+
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+
+    border-top: 1px solid rgba(255, 204, 0, 0.12);
 }
+
+
+/* =========================================
+   FOOTER CONTAINER
+========================================= */
 
 .footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr;
-  gap: 60px;
-  /* లోగో పెద్దగా ఉన్నా మిగతా సెక్షన్లు ఒకే లైన్ లో స్టార్ట్ అవ్వడానికి ఇది ముఖ్యం */
-  align-items: start; 
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: 1.5fr 1fr 1fr;
+
+    gap: 70px;
+
+    align-items: start;
 }
 
-/* LOGO & BRANDING */
+
+/* =========================================
+   LOGO & BRANDING
+========================================= */
+
 .footer-logo-img {
-  height: 180px; /* నువ్వు పెంచిన సైజుకు తగ్గట్టు అడ్జస్ట్ చేశాను */
-  width: auto;
-  margin-bottom: 15px; /* కింద టెక్స్ట్ కి లోగో కి గ్యాప్ తగ్గించాను */
-  display: block;
-  filter: drop-shadow(0 0 5px rgba(255, 204, 0, 0.2));
+    display: block;
+
+    width: auto;
+    height: 180px;
+
+    margin-bottom: 15px;
+
+    object-fit: contain;
+
+    filter: drop-shadow(
+        0 0 10px rgba(255, 204, 0, 0.2)
+    );
+
+    transition: transform 0.3s ease;
 }
+
+.footer-logo-img:hover {
+    transform: translateY(-3px) scale(1.02);
+}
+
+
+/* =========================================
+   BRAND DESCRIPTION
+========================================= */
 
 .brand-desc {
-  line-height: 1.6; /* టెక్స్ట్ మరీ సాగకుండా అడ్జస్ట్ చేశాను */
-  color: #a1a1aa;
-  font-size: 0.95rem;
-  max-width: 320px;
+    max-width: 360px;
+
+    margin: 0;
+
+    color: #a1a1aa;
+
+    font-size: 0.94rem;
+
+    line-height: 1.7;
+
+    letter-spacing: 0.1px;
 }
 
-/* SECTION TITLES */
+
+/* =========================================
+   SECTION TITLES
+========================================= */
+
 .section-title {
-  color: #ffcc00;
-  font-size: 0.85rem;
-  font-weight: 700;
-  /* లోగో సెక్షన్ తో సమానంగా కనిపించడానికి మార్జిన్ టాప్ అడ్జస్ట్ చేశాను */
-  margin-top: 20px; 
-  margin-bottom: 30px;
-  display: block;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+    display: block;
+
+    margin: 7px 0 28px;
+
+    color: #ffcc00;
+
+    font-size: 0.82rem;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
 }
 
-/* QUICK LINKS */
+
+/* =========================================
+   QUICK LINKS
+========================================= */
+
 .link-list {
-  list-style: none;
-  padding: 0;
+    list-style: none;
+
+    padding: 0;
+    margin: 0;
 }
 
 .link-list li {
-  margin-bottom: 15px;
+    margin-bottom: 16px;
 }
 
 .link-list button {
-  background: none;
-  border: none;
-  color: #d4d4d8;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  padding: 0;
-  text-align: left;
+    padding: 0;
+
+    background: transparent;
+
+    border: none;
+
+    color: #d4d4d8;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    font-size: 0.98rem;
+
+    text-align: left;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
 }
 
 .link-list button:hover {
-  color: #ffcc00;
-  padding-left: 8px;
+    color: #ffcc00;
+
+    transform: translateX(6px);
 }
 
-/* SOCIAL ICONS */
+
+/* =========================================
+   CONTACT / SOCIAL ICONS
+========================================= */
+
 .contact-social-icons {
-  display: flex;
-  gap: 15px;
-  align-items: center;
-  margin-top: 10px;
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-top: 5px;
 }
 
 .social-icon-link {
-  color: #ffcc00;
-  font-size: 1.2rem;
-  width: 45px;
-  height: 45px;
-  background: rgba(255, 204, 0, 0.05);
-  border: 1px solid rgba(255, 204, 0, 0.2);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  text-decoration: none;
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #ffcc00;
+
+    background: rgba(255, 204, 0, 0.04);
+
+    border: 1px solid rgba(255, 204, 0, 0.22);
+
+    border-radius: 50%;
+
+    font-size: 1.15rem;
+
+    text-decoration: none;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .social-icon-link:hover {
-  background: #ffcc00;
-  color: #000;
-  transform: translateY(-5px) rotate(8deg);
-  border-color: #ffcc00;
+    background: #ffcc00;
+
+    color: #080808;
+
+    border-color: #ffcc00;
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 8px 20px rgba(255, 204, 0, 0.18);
 }
 
-/* FOOTER BOTTOM */
+
+/* =========================================
+   FOOTER BOTTOM
+========================================= */
+
 .footer-bottom {
-  text-align: center;
-  margin-top: 70px;
-  padding-top: 25px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  font-size: 0.85rem;
-  color: #71717a;
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 55px auto 0;
+
+    padding-top: 22px;
+
+    text-align: center;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+
+    font-size: 0.82rem;
+
+    color: #71717a;
 }
 
 .credit {
-  margin-top: 8px;
-  letter-spacing: 1px;
-  font-weight: 500;
-  color: #52525b;
+    margin-top: 8px;
+
+    color: #52525b;
+
+    font-size: 0.78rem;
+
+    font-weight: 500;
+
+    letter-spacing: 1.2px;
 }
 
-/* MOBILE RESPONSIVE */
+
+/* =========================================
+   TABLET
+========================================= */
+
 @media (max-width: 900px) {
-  .footer-container {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 40px;
-  }
-  
-  .footer-logo-img {
-    height: 140px; /* మొబైల్ లో లోగో కొంచెం తగ్గించాను */
-    margin: 0 auto 20px;
-  }
 
-  .section-title {
-    margin-top: 0; /* మొబైల్ లో అవసరం లేదు */
-  }
+    .footer {
+        padding: 55px 25px 25px;
+    }
 
-  .contact-social-icons {
-    justify-content: center;
-  }
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
 
-  .brand-desc {
-    margin: 0 auto;
-  }
+        gap: 45px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+
+    .footer-logo-img {
+        height: 150px;
+    }
+
+    .brand-desc {
+        max-width: 500px;
+    }
+
+    .footer-bottom {
+        margin-top: 45px;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .footer {
+        padding: 45px 20px 22px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+
+        text-align: center;
+    }
+
+    .footer-brand {
+        grid-column: auto;
+    }
+
+    .footer-logo-img {
+        height: 125px;
+
+        margin: 0 auto 16px;
+    }
+
+    .brand-desc {
+        max-width: 330px;
+
+        margin: 0 auto;
+
+        font-size: 0.9rem;
+
+        line-height: 1.65;
+    }
+
+    .section-title {
+        margin: 0 0 20px;
+
+        font-size: 0.78rem;
+    }
+
+    .link-list li {
+        margin-bottom: 13px;
+    }
+
+    .link-list button {
+        font-size: 0.95rem;
+    }
+
+    .link-list button:hover {
+        transform: none;
+    }
+
+    .contact-social-icons {
+        justify-content: center;
+
+        gap: 12px;
+    }
+
+    .social-icon-link {
+        width: 44px;
+        height: 44px;
+    }
+
+    .footer-bottom {
+        margin-top: 40px;
+
+        padding-top: 20px;
+
+        font-size: 0.78rem;
+    }
+
+    .credit {
+        font-size: 0.72rem;
+    }
+}
+
+
+/* =========================================
+   VERY SMALL DEVICES
+========================================= */
+
+@media (max-width: 380px) {
+
+    .footer {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .footer-logo-img {
+        height: 110px;
+    }
+
+    .brand-desc {
+        font-size: 0.85rem;
+    }
+
+    .social-icon-link {
+        width: 42px;
+        height: 42px;
+    }
 }

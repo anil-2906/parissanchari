@@ -1,159 +1,789 @@
-/* PACKAGES SECTION - PREMIUM DARK */
+/* =========================================
+   PACKAGES SECTION
+========================================= */
 
 .packages-section {
-  background: #000;
-  padding: 100px 40px;
-  text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 100px 40px;
+
+    background: #000;
+
+    text-align: center;
 }
 
-/* Subtitle */
-.subtitle {
-  color: #facc15;
-  letter-spacing: 3px;
-  font-size: 13px;
-  text-transform: uppercase;
+
+/* =========================================
+   HEADER
+========================================= */
+
+.packages-section .subtitle {
+    margin: 0 0 10px;
+
+    color: #facc15;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+    text-transform: uppercase;
 }
 
-/* Title */
-.title {
-  font-size: 42px;
-  margin-top: 10px;
-  font-weight: 800;
-  color: #fff;
+.packages-section .title {
+    margin: 0;
+
+    color: #fff;
+
+    font-size: 42px;
+    font-weight: 800;
+
+    line-height: 1.2;
 }
 
-/* Description */
-.desc {
-  color: #bbb;
-  max-width: 720px;
-  margin: 15px auto 60px;
-  font-size: 17px;
-  line-height: 1.6;
+.packages-section .desc {
+    max-width: 760px;
+
+    margin: 18px auto 60px;
+
+    color: #aaa;
+
+    font-size: 17px;
+    line-height: 1.7;
 }
 
-/* GRID */
+
+/* =========================================
+   PACKAGE GRID
+========================================= */
+
 .packages-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+    width: 100%;
+    max-width: 1400px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 30px;
 }
 
-/* CARD */
+
+/* =========================================
+   PACKAGE CARD
+========================================= */
+
 .package-card {
-  border-radius: 16px;
-  overflow: hidden;
-  text-align: left;
-  background: #111;
-  transition: 0.4s ease;
-  position: relative;
-  border: 1px solid rgba(250, 204, 21, 0.2);
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    min-width: 0;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            #121212 0%,
+            #0d0d0d 100%
+        );
+
+    border: 1px solid rgba(250, 204, 21, 0.22);
+
+    border-radius: 18px;
+
+    text-align: left;
+
+    box-sizing: border-box;
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
 }
 
-/* Glow hover effect */
 .package-card:hover {
-  transform: translateY(-8px) scale(1.01);
-  border: 1px solid #facc15;
-  box-shadow: 0 10px 30px rgba(250, 204, 21, 0.15);
+    transform: translateY(-8px);
+
+    border-color: rgba(250, 204, 21, 0.8);
+
+    box-shadow:
+        0 18px 45px rgba(250, 204, 21, 0.12);
 }
 
-/* IMAGE */
+
+/* =========================================
+   IMAGE
+========================================= */
+
 .image-container {
-  overflow: hidden;
+    position: relative;
+
+    width: 100%;
+    height: 235px;
+
+    overflow: hidden;
+
+    background: #111;
 }
 
 .package-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  transition: 0.5s ease;
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.6s ease,
+        filter 0.4s ease;
 }
 
-/* Image zoom on hover */
 .package-card:hover img {
-  transform: scale(1.08);
+    transform: scale(1.07);
+
+    filter: brightness(1.05);
 }
 
-/* CONTENT */
+
+/* =========================================
+   IMAGE OVERLAY
+========================================= */
+
+.image-container::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.05),
+            rgba(0, 0, 0, 0.35)
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   PARIS BADGE
+========================================= */
+
+.package-badge {
+    position: absolute;
+
+    top: 14px;
+    left: 14px;
+
+    z-index: 2;
+
+    padding: 7px 13px;
+
+    background: rgba(0, 0, 0, 0.78);
+
+    border: 1px solid rgba(250, 204, 21, 0.5);
+
+    border-radius: 20px;
+
+    color: #ffd700;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    backdrop-filter: blur(5px);
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
 .package-content {
-  padding: 22px;
+    display: flex;
+    flex-direction: column;
+
+    flex: 1;
+
+    min-height: 205px;
+
+    padding: 24px;
+
+    box-sizing: border-box;
 }
 
-/* TOP ROW */
-.top {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 12px;
+
+/* =========================================
+   TOP ROW
+========================================= */
+
+.package-content .top {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    margin-bottom: 14px;
 }
 
-.top span {
-  font-size: 13px;
-  color: #aaa;
+.package-content .top span {
+    color: #999;
+
+    font-size: 13px;
+
+    line-height: 1.4;
 }
 
-/* PRICE */
-.price {
-  color: #facc15;
-  font-weight: 700;
+.package-content .top .price {
+    color: #facc15;
+
+    font-weight: 700;
+
+    white-space: nowrap;
 }
 
-/* TITLE */
+
+/* =========================================
+   PACKAGE TITLE
+========================================= */
+
 .package-content h3 {
-  font-size: 21px;
-  margin-bottom: 18px;
-  color: #fff;
+    margin: 0 0 24px;
+
+    color: #fff;
+
+    font-size: 23px;
+    font-weight: 800;
+
+    line-height: 1.3;
 }
 
-/* BUTTON */
-.package-content button {
-  background: linear-gradient(135deg, #facc15, #eab308);
-  color: #000;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 600;
-  transition: 0.3s ease;
+
+/* =========================================
+   ENQUIRE LINK
+========================================= */
+
+.enquire-link {
+    display: block;
+
+    width: 100%;
+
+    margin-top: auto;
+
+    text-decoration: none;
 }
 
-/* Button hover */
-.package-content button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(250, 204, 21, 0.3);
+
+/* =========================================
+   ENQUIRE BUTTON
+========================================= */
+
+.enquire-btn {
+    width: 100%;
+
+    min-height: 52px;
+
+    padding: 0 18px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    box-sizing: border-box;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #facc15,
+            #eab308
+        );
+
+    color: #000;
+
+    font-family: inherit;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
 }
 
-/* Bottom text */
-.bottom-text {
-  margin-top: 50px;
-  color: #bbb;
-  font-size: 15px;
+.enquire-btn span {
+    font-size: 18px;
+
+    line-height: 1;
+
+    transition:
+        transform 0.25s ease;
 }
 
-/* ================= RESPONSIVE ================= */
+.enquire-btn:hover {
+    transform: translateY(-2px);
 
-/* Tablet */
-@media (max-width: 992px) {
-  .packages-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+    box-shadow:
+        0 8px 25px rgba(250, 204, 21, 0.28);
+
+    background:
+        linear-gradient(
+            135deg,
+            #fde047,
+            #facc15
+        );
 }
 
-/* Mobile */
+.enquire-btn:hover span {
+    transform: translateX(5px);
+}
+
+
+/* =========================================
+   COMMON INCLUSIONS
+========================================= */
+
+.common-inclusions {
+    width: 100%;
+    max-width: 1150px;
+
+    margin: 65px auto 0;
+
+    padding: 32px;
+
+    box-sizing: border-box;
+
+    background:
+        linear-gradient(
+            145deg,
+            #111 0%,
+            #0a0a0a 100%
+        );
+
+    border: 1px solid rgba(250, 204, 21, 0.22);
+
+    border-radius: 18px;
+
+    text-align: center;
+}
+
+.common-inclusions h3 {
+    margin: 0;
+
+    color: #facc15;
+
+    font-size: 23px;
+    font-weight: 800;
+}
+
+.common-inclusions-subtitle {
+    max-width: 650px;
+
+    margin: 9px auto 27px;
+
+    color: #888;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   INCLUSIONS GRID
+========================================= */
+
+.common-inclusions-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 12px;
+}
+
+.common-inclusion-item {
+    min-height: 58px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 11px;
+
+    box-sizing: border-box;
+
+    background: #151515;
+
+    border: 1px solid rgba(255, 255, 255, 0.06);
+
+    border-radius: 10px;
+
+    transition:
+        border-color 0.25s ease,
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.common-inclusion-item:hover {
+    background: #191919;
+
+    border-color: rgba(250, 204, 21, 0.25);
+
+    transform: translateY(-2px);
+}
+
+.common-inclusion-item span {
+    flex-shrink: 0;
+
+    color: #facc15;
+
+    font-size: 14px;
+
+    font-weight: 900;
+}
+
+.common-inclusion-item p {
+    margin: 0;
+
+    color: #d0d0d0;
+
+    font-size: 12px;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================
+   BOTTOM CTA
+========================================= */
+
+.packages-section .bottom-text {
+    margin: 50px auto 0;
+
+    color: #aaa;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+}
+
+.packages-section .bottom-text a {
+    margin-left: 7px;
+
+    color: #facc15;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition:
+        color 0.25s ease;
+}
+
+.packages-section .bottom-text a:hover {
+    color: #fff;
+}
+
+
+/* =========================================
+   LARGE DESKTOP
+========================================= */
+
+@media (min-width: 1500px) {
+
+    .packages-section {
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+
+    .packages-grid {
+        max-width: 1500px;
+
+        gap: 32px;
+    }
+
+    .image-container {
+        height: 245px;
+    }
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+
+    .packages-section {
+        padding: 80px 25px;
+    }
+
+    .packages-section .title {
+        font-size: 38px;
+    }
+
+    .packages-section .desc {
+        margin-bottom: 50px;
+    }
+
+    .packages-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 24px;
+    }
+
+    /*
+       All 6 cards remain normal width.
+       No special last-child rule needed.
+    */
+
+    .image-container {
+        height: 220px;
+    }
+
+    .common-inclusions {
+        margin-top: 50px;
+    }
+
+    .common-inclusions-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
+
+
+/* =========================================
+   SMALL TABLET
+========================================= */
+
+@media (max-width: 800px) {
+
+    .packages-section {
+        padding: 70px 20px;
+    }
+
+    .packages-section .title {
+        font-size: 34px;
+    }
+
+    .packages-section .desc {
+        max-width: 650px;
+
+        font-size: 15px;
+    }
+
+    .packages-grid {
+        gap: 20px;
+    }
+
+    .image-container {
+        height: 205px;
+    }
+
+    .package-content {
+        padding: 21px;
+    }
+
+    .package-content h3 {
+        font-size: 21px;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
 @media (max-width: 600px) {
-  .packages-section {
-    padding: 70px 20px;
-  }
 
-  .packages-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
+    .packages-section {
+        padding: 65px 18px;
+    }
 
-  .title {
-    font-size: 28px;
-  }
+    .packages-section .subtitle {
+        font-size: 11px;
 
-  .package-card img {
-    height: 180px;
-  }
+        letter-spacing: 2.5px;
+    }
+
+    .packages-section .title {
+        font-size: 30px;
+    }
+
+    .packages-section .desc {
+        margin-top: 15px;
+        margin-bottom: 40px;
+
+        font-size: 15px;
+
+        line-height: 1.65;
+    }
+
+    .packages-grid {
+        grid-template-columns: 1fr;
+
+        gap: 22px;
+    }
+
+    .image-container {
+        height: 215px;
+    }
+
+    .package-content {
+        min-height: 195px;
+
+        padding: 20px;
+    }
+
+    .package-content .top {
+        margin-bottom: 12px;
+    }
+
+    .package-content .top span {
+        font-size: 12px;
+    }
+
+    .package-content h3 {
+        margin-bottom: 20px;
+
+        font-size: 21px;
+    }
+
+    .enquire-btn {
+        min-height: 50px;
+
+        font-size: 13px;
+    }
+
+
+    /* COMMON INCLUSIONS */
+
+    .common-inclusions {
+        margin-top: 38px;
+
+        padding: 24px 15px;
+    }
+
+    .common-inclusions h3 {
+        font-size: 19px;
+    }
+
+    .common-inclusions-subtitle {
+        margin-bottom: 22px;
+
+        font-size: 12px;
+    }
+
+    .common-inclusions-grid {
+        grid-template-columns: 1fr;
+
+        gap: 9px;
+    }
+
+    .common-inclusion-item {
+        justify-content: flex-start;
+
+        min-height: 52px;
+
+        padding: 11px 13px;
+    }
+
+    .common-inclusion-item p {
+        font-size: 12px;
+    }
+
+
+    /* BOTTOM CTA */
+
+    .packages-section .bottom-text {
+        margin-top: 38px;
+
+        font-size: 14px;
+    }
+
+    .packages-section .bottom-text a {
+        display: block;
+
+        margin: 7px 0 0;
+    }
+}
+
+
+/* =========================================
+   SMALL PHONES
+========================================= */
+
+@media (max-width: 380px) {
+
+    .packages-section {
+        padding: 55px 14px;
+    }
+
+    .packages-section .title {
+        font-size: 27px;
+    }
+
+    .packages-section .desc {
+        font-size: 14px;
+    }
+
+    .image-container {
+        height: 190px;
+    }
+
+    .package-content {
+        min-height: 185px;
+
+        padding: 17px;
+    }
+
+    .package-content h3 {
+        font-size: 20px;
+    }
+
+    .package-badge {
+        top: 11px;
+        left: 11px;
+
+        padding: 6px 11px;
+
+        font-size: 11px;
+    }
+
+    .enquire-btn {
+        min-height: 48px;
+
+        font-size: 12.5px;
+    }
+
+    .common-inclusions {
+        padding: 21px 12px;
+    }
+
+    .common-inclusions h3 {
+        font-size: 18px;
+    }
 }

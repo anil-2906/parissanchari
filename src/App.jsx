@@ -13,6 +13,11 @@ function App() {
       <Navbar />
       <Hero />
 
+      {/* TEST REVIEWS TOP */}
+      <div id="reviews">
+        <Reviews />
+      </div>
+
       <div id="services">
         <Services />
       </div>
@@ -23,10 +28,6 @@ function App() {
 
       <div id="whyus">
         <WhyUS />
-      </div>
-
-      <div id="reviews">
-        <Reviews />
       </div>
 
       <div id="contact">

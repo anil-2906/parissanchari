@@ -1,140 +1,401 @@
-import "../styles/contact.css";
 import { useState } from "react";
+import "../styles/contact.css";
+
+const tripOptions = [
+  "Paris Solo Trip",
+  "Paris Couple Trip",
+  "Paris Family Trip",
+  "Paris Group Trip",
+  "Disneyland Paris Trip",
+  "Personal Guide",
+  "Custom Paris Trip",
+];
+
+const packageOptions = [
+  "🥈 Silver Package",
+  "🥇 Gold Package",
+  "💎 Diamond Package",
+];
 
 export default function Contact() {
   const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    location: "Paris",
-    month: "Travel Month",
-    travelerType: "Couple / Honeymoon", // Updated
-    service: "Services Needed",
-    budget: "Standard Range", // New field
+    fullName: "",
+    trip: "Paris Solo Trip",
+    package: "🥈 Silver Package",
+    travelers: "1",
+    fromDate: "",
+    toDate: "",
+    message: "",
   });
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.id]: e.target.value });
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
-  const sendWhatsApp = () => {
-    const { name, phone, location, month, travelerType, service, budget } = formData;
-    
-    if(!name || !phone) {
-      alert("Please enter your Name and WhatsApp number");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!formData.fullName.trim()) {
+      alert("Please enter your full name.");
       return;
     }
 
-    const message = `*New Trip Enquiry from Website* 🗼
-------------------------------
-👤 *Name:* ${name}
-📱 *WhatsApp:* ${phone}
-📍 *Destination:* ${location}
-🗓️ *Travel Month:* ${month}
-👥 *Traveler Type:* ${travelerType}
-💼 *Services:* ${service}
-💰 *Budget:* ${budget}
-------------------------------
-_Sent via Paris Sanchari Website_`;
+    if (!formData.fromDate || !formData.toDate) {
+      alert("Please select your travel dates.");
+      return;
+    }
 
-    const url = `https://wa.me/919866883843?text=${encodeURIComponent(message)}`;
-    window.open(url, "_blank");
+    if (formData.toDate < formData.fromDate) {
+      alert("To Date cannot be before From Date.");
+      return;
+    }
+
+    const whatsappMessage = `🇫🇷 *PARIS SANCHARI – NEW TRAVEL ENQUIRY* 🇫🇷
+
+👤 *Full Name:* ${formData.fullName}
+
+🗼 *Paris Trip:* ${formData.trip}
+
+🏆 *Package:* ${formData.package}
+
+👥 *Number of Travelers:* ${formData.travelers}
+
+📅 *Travel Dates:*
+From: ${formData.fromDate}
+To: ${formData.toDate}
+
+📝 *Additional Requirements:*
+${formData.message || "No additional requirements mentioned."}
+
+Please share the itinerary, inclusions and pricing.
+
+Thank you! 🇫🇷`;
+
+    const whatsappURL =
+      `https://wa.me/919866883843?text=${encodeURIComponent(
+        whatsappMessage
+      )}`;
+
+    window.open(whatsappURL, "_blank");
   };
 
   return (
     <section className="contact-section" id="contact">
-      <div className="contact-container">
-        
-        {/* LEFT SIDE: Content */}
-        <div className="contact-left">
-          <p className="subtitle">START PLANNING</p>
-          <h2 className="contact-title">Plan Your Paris Adventure</h2>
-          <p className="contact-desc">
-            Share your travel plans and I will help you create the perfect Paris & Europe itinerary. 
-            No commitment just honest guidance from a fellow Telugu traveler.
-          </p>
 
-          <div className="benefit-list">
-            <div className="benefit-item">
-              <span className="icon">✅</span>
-              <p>Personalized itinerary within 24 hours</p>
-            </div>
-            <div className="benefit-item">
-              <span className="icon">✅</span>
-              <p>Visa guidance & documentation support</p>
-            </div>
-            <div className="benefit-item">
-              <span className="icon">✅</span>
-              <p>Local tips that save time & money</p>
-            </div>
-            <div className="benefit-item">
-              <span className="icon">✅</span>
-              <p>Direct WhatsApp communication</p>
-            </div>
+      {/* =========================================
+          LEFT SIDE
+      ========================================= */}
+
+      <div className="contact-left">
+
+        <p className="subtitle">
+          START PLANNING
+        </p>
+
+        <h2 className="contact-title">
+          Plan Your Paris Adventure
+        </h2>
+
+        <p className="contact-desc">
+          Tell us about your Paris trip and we'll help you
+          plan an unforgettable experience with personalized
+          travel support.
+        </p>
+
+        <div className="benefit-list">
+
+          <div className="benefit-item">
+            <span className="icon">✓</span>
+            <p>Personalized Paris itinerary</p>
           </div>
+
+          <div className="benefit-item">
+            <span className="icon">✓</span>
+            <p>Visa guidance & documentation support</p>
+          </div>
+
+          <div className="benefit-item">
+            <span className="icon">✓</span>
+            <p>Airport pickup & Paris travel support</p>
+          </div>
+
+          <div className="benefit-item">
+            <span className="icon">✓</span>
+            <p>Direct WhatsApp communication</p>
+          </div>
+
         </div>
 
-        {/* RIGHT SIDE: Professional Form */}
-        <div className="contact-right">
-          <div className="form-card">
-            <div className="input-group">
-              <input type="text" placeholder="Your Name" id="name" onChange={handleChange} required />
-              <input type="text" placeholder="WhatsApp with Country Code" id="phone" onChange={handleChange} required />
-            </div>
+        <div className="contact-highlight">
 
-            <div className="select-group">
-              <select id="location" onChange={handleChange}>
-                <option value="Paris">Paris Tour</option>
-                <option value="Europe">Europe Combined</option>
-                <option value="Custom">Custom Destination</option>
-              </select>
 
-              <select id="month" onChange={handleChange}>
-                <option>Travel Month</option>
-                <option>January</option> <option>February</option>
-                <option>March</option> <option>April</option>
-                <option>May</option> <option>June</option>
-                <option>July</option> <option>August</option>
-                <option>September</option> <option>October</option>
-                <option>November</option> <option>December</option>
-              </select>
-            </div>
-
-            <div className="select-group">
-              <select id="travelerType" onChange={handleChange}>
-                <option value="Solo Traveler">Solo Traveler</option>
-                <option value="Couple / Honeymoon">Couple / Honeymoon</option>
-                <option value="Family with Kids">Family with Kids</option>
-                <option value="Group of Friends">Group of Friends</option>
-              </select>
-
-              <select id="budget" onChange={handleChange}>
-                <option value="Standard">Budget: Standard</option>
-                <option value="Premium">Budget: Premium</option>
-                <option value="Luxury">Budget: Luxury</option>
-              </select>
-            </div>
-
-            <div className="select-group">
-              <select id="service" className="full-width" onChange={handleChange}>
-                <option>Services Needed</option>
-                <option>Full Tour Package (Flight+Hotel+Guide)</option>
-                <option>Only Guided City Tour</option>
-                <option>Visa Assistance Only</option>
-                <option>Airport Pickup & Drop</option>
-              </select>
-            </div>
-
-            <button className="whatsapp-btn" onClick={sendWhatsApp}>
-               Send Enquiry via WhatsApp
-            </button>
-
-            <p className="form-footer">
-              🔒 Your details are safe. I'll only contact you about your trip.
+            <p>
+              Tell us your requirements and we'll
+              help plan your Paris experience.
             </p>
           </div>
+
+        </div>
+
+    
+
+
+      {/* =========================================
+          RIGHT SIDE
+      ========================================= */}
+
+      <div className="contact-right">
+
+        <div className="form-card">
+
+          {/* FORM HEADER */}
+
+          <div className="form-heading">
+
+            <div className="form-plane">
+              ✈️
+            </div>
+
+            <h3>
+              PLAN YOUR PARIS JOURNEY
+            </h3>
+
+            <p>
+              Tell us your travel details and we'll create
+              a personalized Paris experience for you.
+            </p>
+
+          </div>
+
+
+          {/* FORM */}
+
+          <form
+            className="contact-form"
+            onSubmit={handleSubmit}
+          >
+
+            {/* =====================================
+                FULL NAME
+            ===================================== */}
+
+            <div className="field full-width">
+
+              <label htmlFor="fullName">
+                FULL NAME
+              </label>
+
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                value={formData.fullName}
+                onChange={handleChange}
+                placeholder="Enter your full name"
+                autoComplete="name"
+                required
+              />
+
+            </div>
+
+
+            {/* =====================================
+                PARIS TRIP + PACKAGE
+            ===================================== */}
+
+            <div className="form-row">
+
+              <div className="field">
+
+                <label htmlFor="trip">
+                  PARIS TRIP
+                </label>
+
+                <select
+                  id="trip"
+                  name="trip"
+                  value={formData.trip}
+                  onChange={handleChange}
+                >
+
+                  {tripOptions.map((trip) => (
+                    <option
+                      key={trip}
+                      value={trip}
+                    >
+                      {trip}
+                    </option>
+                  ))}
+
+                </select>
+
+              </div>
+
+
+              <div className="field">
+
+                <label htmlFor="package">
+                  PACKAGE
+                </label>
+
+                <select
+                  id="package"
+                  name="package"
+                  value={formData.package}
+                  onChange={handleChange}
+                >
+
+                  {packageOptions.map((pkg) => (
+                    <option
+                      key={pkg}
+                      value={pkg}
+                    >
+                      {pkg}
+                    </option>
+                  ))}
+
+                </select>
+
+              </div>
+
+            </div>
+
+
+            {/* =====================================
+                NUMBER OF TRAVELERS
+            ===================================== */}
+
+            <div className="field full-width">
+
+              <label htmlFor="travelers">
+                NUMBER OF TRAVELERS
+              </label>
+
+              <input
+                type="number"
+                id="travelers"
+                name="travelers"
+                value={formData.travelers}
+                onChange={handleChange}
+                min="1"
+                max="50"
+                required
+              />
+
+            </div>
+
+
+            {/* =====================================
+                FROM DATE + TO DATE
+            ===================================== */}
+
+            <div className="form-row date-row">
+
+              <div className="field">
+
+                <label htmlFor="fromDate">
+                  FROM DATE
+                </label>
+
+                <input
+                  type="date"
+                  id="fromDate"
+                  name="fromDate"
+                  value={formData.fromDate}
+                  onChange={handleChange}
+                  required
+                />
+
+              </div>
+
+
+              <div className="field">
+
+                <label htmlFor="toDate">
+                  TO DATE
+                </label>
+
+                <input
+                  type="date"
+                  id="toDate"
+                  name="toDate"
+                  value={formData.toDate}
+                  onChange={handleChange}
+                  min={formData.fromDate || undefined}
+                  required
+                />
+
+              </div>
+
+            </div>
+
+
+            {/* =====================================
+                ADDITIONAL REQUIREMENTS
+            ===================================== */}
+
+            <div className="field full-width">
+
+              <label htmlFor="message">
+                ADDITIONAL REQUIREMENTS
+              </label>
+
+              <textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                placeholder="Hotel, airport pickup, Disneyland, Eiffel Tower, personal guide, sightseeing, etc."
+                rows="4"
+              />
+
+            </div>
+
+
+            {/* =====================================
+                WHATSAPP BUTTON
+            ===================================== */}
+
+            <button
+              type="submit"
+              className="whatsapp-btn"
+            >
+
+              <span className="whatsapp-icon">
+                💬
+              </span>
+
+              <span>
+                SEND ENQUIRY VIA WHATSAPP
+              </span>
+
+              <span className="btn-arrow">
+                →
+              </span>
+
+            </button>
+
+
+            {/* =====================================
+                FOOTER NOTE
+            ===================================== */}
+
+            <p className="form-footer">
+              ✨ We'll contact you on WhatsApp with your
+              personalized Paris itinerary and pricing.
+            </p>
+
+          </form>
+
         </div>
 
       </div>
+
     </section>
   );
 }
