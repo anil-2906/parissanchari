@@ -3,49 +3,47 @@ import "../styles/packages.css";
 import soloTrip from "../assets/solotrip.jpeg";
 import coupleTrip from "../assets/coupleTrip.png";
 import familyTrip from "../assets/familyTrip.jpg";
-import disneylandTrip from "../assets/disneyland.jpg";
 import personalGuide from "../assets/personalGuide.png";
 import groupTrip from "../assets/grouptrip.png";
-
+import switzerlandTrip from "../assets/switzerland.jpg";
 
 const packages = [
   {
     title: "Paris Solo Trip",
     days: "3 Days",
-    price: "Custom",
+    startFrom: "₹69,999",
     image: soloTrip,
   },
   {
     title: "Paris Couple Trip",
     days: "3 Days",
-    price: "Custom",
+    startFrom: "₹89,999",
     image: coupleTrip,
   },
   {
     title: "Paris Family Trip",
     days: "3–4 Days",
-    price: "Custom",
+    startFrom: "₹1,89,999",
     image: familyTrip,
   },
   {
     title: "Paris Group Trip",
     days: "3–4 Days",
-    price: "Custom",
+    startFrom: "₹59,999",
     image: groupTrip,
-  },
-  {
-    title: "Disneyland Paris Trip",
-    days: "1 Day",
-    price: "Custom",
-    image: disneylandTrip,
   },
   {
     title: "Personal Guide",
     days: "Up to 8 Hours",
-    price: "Custom",
+    startFrom: "₹2,999",
     image: personalGuide,
   },
-  
+  {
+    title: "Switzerland Trip",
+    days: "5 Nights / 6 Days",
+    startFrom: "₹1,49,999",
+    image: switzerlandTrip,
+  },
 ];
 
 const commonInclusions = [
@@ -56,7 +54,7 @@ const commonInclusions = [
   "🎢 Disneyland Paris",
   "🚌 Big Bus Tour",
   "👨‍💼 Personal Guide — Up to 8 Hours",
-  "📞 On call Support"
+  "📞 On Call Support",
 ];
 
 export default function Packages() {
@@ -101,6 +99,45 @@ Thank you! 🇫🇷`;
       </p>
 
 
+      {/* ITINERARY PLANNING INFO */}
+
+      <div className="itinerary-info">
+
+        <div className="itinerary-icon">
+          📋
+        </div>
+
+        <div className="itinerary-content">
+
+          <h3>
+            Personalized Itinerary Planning
+          </h3>
+
+          <p>
+            Get a basic personalized itinerary based on your
+            travel dates, number of travelers and requirements.
+          </p>
+
+          <div className="itinerary-fee">
+            <span>
+              Planning Fee
+            </span>
+
+            <strong>
+              ₹1,500
+            </strong>
+          </div>
+
+          <small>
+            ✓ If you confirm your package with us, the ₹1,500
+            will be adjusted against your final package amount.
+          </small>
+
+        </div>
+
+      </div>
+
+
       {/* PACKAGE CARDS */}
 
       <div className="packages-grid">
@@ -122,7 +159,9 @@ Thank you! 🇫🇷`;
               />
 
               <div className="package-badge">
-                🇫🇷 Paris
+                {pkg.title === "Switzerland Trip"
+                  ? "🇨🇭 Switzerland"
+                  : "🇫🇷 Paris"}
               </div>
 
             </div>
@@ -139,11 +178,10 @@ Thank you! 🇫🇷`;
                 </span>
 
                 <span className="price">
-                  Price: {pkg.price}
+                  Starting from: {pkg.startFrom}
                 </span>
 
               </div>
-
 
               <h3>
                 {pkg.title}
