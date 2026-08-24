@@ -35,7 +35,7 @@ const packages = [
   {
     title: "Personal Guide",
     days: "Up to 8 Hours",
-    startFrom: "₹2,999",
+    startFrom: "₹29,999",
     image: personalGuide,
   },
   {
