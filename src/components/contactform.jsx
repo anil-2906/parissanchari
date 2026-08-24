@@ -6,8 +6,8 @@ const tripOptions = [
   "Paris Couple Trip",
   "Paris Family Trip",
   "Paris Group Trip",
-  "Disneyland Paris Trip",
   "Personal Guide",
+  "Switzerland Trip",
   "Custom Paris Trip",
 ];
 
@@ -59,7 +59,7 @@ export default function ContactForm({ closeForm }) {
 
 👤 *Full Name:* ${formData.fullName}
 
-🗼 *Paris Trip:* ${formData.trip}
+🗼 *Trip:* ${formData.trip}
 
 🏆 *Package:* ${formData.package}
 
@@ -76,10 +76,9 @@ Please share the itinerary, inclusions and pricing.
 
 Thank you! 🇫🇷`;
 
-    const whatsappURL =
-      `https://wa.me/919866883843?text=${encodeURIComponent(
-        whatsappMessage
-      )}`;
+    const whatsappURL = `https://wa.me/919866883843?text=${encodeURIComponent(
+      whatsappMessage
+    )}`;
 
     window.open(whatsappURL, "_blank");
   };
@@ -121,6 +120,31 @@ Thank you! 🇫🇷`;
 
         </div>
 
+        {/* ITINERARY FEE NOTICE */}
+
+        <div className="form-itinerary-notice">
+
+          <div className="notice-icon">
+            📋
+          </div>
+
+          <div className="notice-content">
+
+            <strong>
+              Personalized Itinerary — ₹1,500
+            </strong>
+
+            <p>
+              A basic personalized itinerary planning fee of
+              ₹1,500 applies. If you confirm your package,
+              this amount will be adjusted against your final
+              package amount.
+            </p>
+
+          </div>
+
+        </div>
+
         {/* FORM */}
 
         <form
@@ -149,6 +173,7 @@ Thank you! 🇫🇷`;
 
           </div>
 
+
           {/* TRIP + PACKAGE */}
 
           <div className="form-row">
@@ -156,7 +181,7 @@ Thank you! 🇫🇷`;
             <div className="form-group">
 
               <label htmlFor="trip">
-                PARIS TRIP
+                TRIP
               </label>
 
               <select
@@ -176,6 +201,7 @@ Thank you! 🇫🇷`;
               </select>
 
             </div>
+
 
             <div className="form-group">
 
@@ -203,6 +229,7 @@ Thank you! 🇫🇷`;
 
           </div>
 
+
           {/* NUMBER OF TRAVELERS */}
 
           <div className="form-group full-width">
@@ -224,7 +251,8 @@ Thank you! 🇫🇷`;
 
           </div>
 
-          {/* FROM + TO DATE — SAME LINE */}
+
+          {/* DATES */}
 
           <div className="form-row date-row">
 
@@ -245,6 +273,7 @@ Thank you! 🇫🇷`;
 
             </div>
 
+
             <div className="form-group">
 
               <label htmlFor="toDate">
@@ -263,6 +292,7 @@ Thank you! 🇫🇷`;
             </div>
 
           </div>
+
 
           {/* ADDITIONAL REQUIREMENTS */}
 
@@ -283,12 +313,14 @@ Thank you! 🇫🇷`;
 
           </div>
 
-          {/* WHATSAPP */}
+
+          {/* WHATSAPP BUTTON */}
 
           <button
             type="submit"
             className="whatsapp-submit"
           >
+
             <span className="whatsapp-icon">
               💬
             </span>
@@ -300,7 +332,11 @@ Thank you! 🇫🇷`;
             <span className="submit-arrow">
               →
             </span>
+
           </button>
+
+
+          {/* FORM NOTE */}
 
           <p className="form-note">
             ✨ We'll contact you on WhatsApp with your
